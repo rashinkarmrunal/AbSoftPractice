@@ -17,13 +17,15 @@ public class VerifyHomePageDisplayed {
 	WebDriver driver=BrowserFactory.startBrowser("Chrome", "http://test1.absofttrainings.com/");
 	
 	HomePage homePg=new HomePage(driver);
-	String logo1="ABSoft";
-	String expectedWc="Welcome to our E-Commerce test web site";
-	//Assert.assertEquals(driver.findElement(logo), logo1);
+	
 	PageFactory.initElements(driver, homePg);
 	
+	String logo1="ABSoft";
+	String expectedWc="Welcome to our E-Commerce test web site";
+		
 	String actualLogo=homePg.checkHomePgDisplayed()[1];
 	String actualWctext=homePg.checkHomePgDisplayed()[0];
+	
 	Assert.assertEquals(actualLogo, logo1);
 	Assert.assertEquals(actualWctext, expectedWc);
 		driver.quit();

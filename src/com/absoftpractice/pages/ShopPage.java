@@ -19,12 +19,17 @@ public class ShopPage {
 	
 	
 	@FindBy(name="orderby")
-	WebElement sortBy;
+	WebElement sel ;
+	
 	
 	@FindBy(how=How.XPATH,using="//h1[@class='page-title']")
 	WebElement pageTitle;
 	
-	
-	Select sort=new Select(sortBy);
-	sort.selectByIndex(1);
+	public WebElement selectOtpt(int index)
+	{
+	Select dropdown = new Select(sel);
+	return dropdown.getOptions().get(index);
+	}
+
+
 }
